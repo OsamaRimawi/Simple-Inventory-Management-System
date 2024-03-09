@@ -11,7 +11,5 @@ namespace Simple_Inventory_Management_System
         public string Name { get; set; } = name;
         public double Price { get; set; } = price;
         public int quantity { get; set; } = quantity;
-
-
     }
 }

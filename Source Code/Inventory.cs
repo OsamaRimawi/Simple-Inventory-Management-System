@@ -9,7 +9,8 @@ namespace Simple_Inventory_Management_System
     public class Inventory
     {
         public List<Product> Products { get; set; }
-        public Inventory() {
+        public Inventory()
+        {
             Products = [];
         }
         public Inventory(List<Product> products)
@@ -17,5 +18,10 @@ namespace Simple_Inventory_Management_System
             Products = products;
         }
 
+        public void Add(Product newProduct)
+        {
+            if (newProduct != null)
+                Products.Add(newProduct);
+        }
     }
 }
