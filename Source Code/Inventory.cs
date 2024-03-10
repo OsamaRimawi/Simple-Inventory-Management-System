@@ -32,6 +32,16 @@ namespace Simple_Inventory_Management_System
                 Console.WriteLine();
             }
         }
-                   
-}
+
+        public Product Find(string name)
+        {
+            foreach (var product in Products)
+            {
+                if (product.Name == name)
+                    return product;
+            }
+            return null;
+        }
+
+    }
 }

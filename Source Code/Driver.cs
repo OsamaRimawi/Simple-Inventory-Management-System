@@ -38,6 +38,7 @@ namespace Simple_Inventory_Management_System
                         ViewAllProducts();
                         break;
                     case "3":
+                        EditProduct();
                         break;
                     case "4":
                         break;
@@ -54,7 +55,7 @@ namespace Simple_Inventory_Management_System
 
         private static void AddNewProduct()
         {
-
+            Console.WriteLine("Adding new product:");
             Product newProduct;
 
             Console.Write("Enter the name of the product: ");
@@ -68,11 +69,47 @@ namespace Simple_Inventory_Management_System
 
             newProduct = new Product(name, price, quantity);
             inventory.Add(newProduct);
+            Console.WriteLine($"{name} was Added successfully Inventory: ");
+
         }
 
         private static void ViewAllProducts()
         {
+            Console.WriteLine("Current Inventory: ");
             inventory.Print();
+        }
+
+        private static void EditProduct()
+        {
+            Console.Write("Enter the name of the product to edit: ");
+            string productName = Console.ReadLine();
+
+            Product productToEdit = inventory.Find(productName);
+
+            if (productToEdit != null)
+            {
+                Console.WriteLine("Enter new details for the product:");
+
+                Console.Write("Enter the New name of the product: ");
+                string name = Console.ReadLine() ?? string.Empty;
+                productToEdit.Name = name;
+
+                Console.Write("Enter the New price of the product: ");
+                double price = double.Parse(Console.ReadLine() ?? "0.0");
+                productToEdit.Price = price;
+
+
+                Console.Write("Enter the New quantity of the product: ");
+                int quantity = int.Parse(Console.ReadLine() ?? "0");
+                productToEdit.Quantity = quantity;
+
+                Console.WriteLine($"{productName} updated in the inventory.");
+
+            }
+            else
+            {
+                Console.WriteLine($"{productName} not found in the inventory.");
+            }
         }
     }
 }

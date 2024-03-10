@@ -10,11 +10,11 @@ namespace Simple_Inventory_Management_System
     {
         public string Name { get; set; } = name;
         public double Price { get; set; } = price;
-        public int quantity { get; set; } = quantity;
+        public int Quantity { get; set; } = quantity;
 
         public override string ToString()
         {
-            return ($"Product Name: {Name}, Price: {Price}, Quantity: {quantity} ");
+            return ($"Product Name: {Name}, Price: {Price}, Quantity: {Quantity} ");
         }
     }
 }
