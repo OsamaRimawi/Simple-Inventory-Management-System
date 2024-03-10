@@ -23,5 +23,15 @@ namespace Simple_Inventory_Management_System
             if (newProduct != null)
                 Products.Add(newProduct);
         }
-    }
+        public void Print()
+        {
+            foreach (var product in Products)
+            {
+                Console.WriteLine();
+                Console.WriteLine(product.ToString());
+                Console.WriteLine();
+            }
+        }
+                   
+}
 }

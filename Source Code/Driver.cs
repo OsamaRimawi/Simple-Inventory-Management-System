@@ -35,6 +35,7 @@ namespace Simple_Inventory_Management_System
                         AddNewProduct();
                         break;
                     case "2":
+                        ViewAllProducts();
                         break;
                     case "3":
                         break;
@@ -67,6 +68,11 @@ namespace Simple_Inventory_Management_System
 
             newProduct = new Product(name, price, quantity);
             inventory.Add(newProduct);
+        }
+
+        private static void ViewAllProducts()
+        {
+            inventory.Print();
         }
     }
 }
