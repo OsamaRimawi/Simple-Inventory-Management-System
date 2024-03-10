@@ -43,18 +43,18 @@ namespace Simple_Inventory_Management_System
             return null;
         }
 
-        public void Delete(string productName)
+        public bool Delete(string productName)
         {
             Product productToRemove = Find(productName);
 
             if (productToRemove != null)
             {
                 Products.Remove(productToRemove);
-                Console.WriteLine($"{productName} removed from the inventory.");
+                return true;
             }
             else
             {
-                Console.WriteLine($"{productName} not found in the inventory.");
+                return false;
             }
         }
 

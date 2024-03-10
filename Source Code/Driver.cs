@@ -44,8 +44,10 @@ namespace Simple_Inventory_Management_System
                         DeleteProduct();
                         break;
                     case "5":
+                        SearchProduct();
                         break;
                     case "0":
+                        Console.WriteLine("GoodBye!");
                         break;
                     default:
                         Console.WriteLine("Invalid selection. Please try again.");
@@ -113,10 +115,31 @@ namespace Simple_Inventory_Management_System
             }
         }
 
-        private static void DeleteProduct() {
+        private static void DeleteProduct()
+        {
             Console.Write("Enter the name of the product to delete: ");
             string productName = Console.ReadLine();
-            inventory.Delete(productName);
+            if (inventory.Delete(productName))
+                Console.WriteLine($"{productName} removed from the inventory.");
+            else
+                Console.WriteLine($"{productName} not found in the inventory.");
+        }
+            private static void SearchProduct()
+        {
+            Console.Write("Enter the name of the product to search: ");
+            string productName = Console.ReadLine();
+
+            Product foundProduct = inventory.Find(productName);
+
+            if (foundProduct != null)
+            {
+                Console.WriteLine("Product found in the inventory:");
+                Console.WriteLine(foundProduct.ToString());
+            }
+            else
+            {
+                Console.WriteLine($"{productName} not found in the inventory.");
+            }
         }
     }
 }
