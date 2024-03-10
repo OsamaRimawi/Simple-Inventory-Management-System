@@ -41,6 +41,7 @@ namespace Simple_Inventory_Management_System
                         EditProduct();
                         break;
                     case "4":
+                        DeleteProduct();
                         break;
                     case "5":
                         break;
@@ -110,6 +111,12 @@ namespace Simple_Inventory_Management_System
             {
                 Console.WriteLine($"{productName} not found in the inventory.");
             }
+        }
+
+        private static void DeleteProduct() {
+            Console.Write("Enter the name of the product to delete: ");
+            string productName = Console.ReadLine();
+            inventory.Delete(productName);
         }
     }
 }
